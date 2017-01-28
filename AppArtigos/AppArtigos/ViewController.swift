@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import ALLoadingView
 
 class ViewController: UIViewController {
 
@@ -20,6 +21,15 @@ class ViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
 
+    @IBAction func tappedShowLoading(_ sender: UIButton) {
+    
+        ALLoadingView.manager.blurredBackground = true
+        ALLoadingView.manager.showLoadingView(ofType: .messageWithIndicatorAndCancelButton, windowMode: .fullscreen)
+        ALLoadingView.manager.cancelCallback = {
+            ALLoadingView.manager.hideLoadingView()
+        }
+    
+    }
 
 }
 
